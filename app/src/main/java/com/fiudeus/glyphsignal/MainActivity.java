@@ -1,4 +1,3 @@
-
 package com.fiudeus.glyphsignal;
 
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +36,22 @@ public class MainActivity extends AppCompatActivity {
     private GlyphMatrixView matrixView;
     private TextView matrixStatus;
     private MaterialButton modeButton;
+
+
+    private static final int MIN_REPEATS = 1;
+    private static final int MAX_REPEATS = 999;
+
+    private static final String STATE_REPEATS = "repeats";
+    private static final String STATE_MODE = "mode";
+    private static final String STATE_INFINITE = "infinite";
+
+    private int repeatCount = 1;
+
+    private TextView repeatsValue;
+    private MaterialButton decreaseRepeatsButton;
+    private MaterialButton increaseRepeatsButton;
+    private MaterialSwitch infiniteLoopSwitch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +82,66 @@ public class MainActivity extends AppCompatActivity {
         matrixStatus = findViewById(R.id.matrixStatus);
         modeButton = findViewById(R.id.modeButton);
 
+
+        repeatsValue = findViewById(R.id.repeatsValue);
+
+        decreaseRepeatsButton = findViewById(
+                R.id.decreaseRepeatsButton
+        );
+
+        increaseRepeatsButton = findViewById(
+                R.id.increaseRepeatsButton
+        );
+
+        infiniteLoopSwitch = findViewById(
+                R.id.infiniteLoopSwitch
+        );
+
+        infiniteLoopSwitch.setSaveEnabled(false);
+
+        if (savedInstanceState != null) {
+            repeatCount = savedInstanceState.getInt(
+                    STATE_REPEATS, MIN_REPEATS
+            );
+
+            infiniteLoopSwitch.setChecked(
+                    savedInstanceState.getBoolean(
+                            STATE_INFINITE, false
+                    )
+            );
+
+            mode = TransmissionMode.valueOf(
+                    savedInstanceState.getString(
+                            STATE_MODE,
+                            TransmissionMode.FULL_MATRIX.name()
+                    )
+            );
+
+            modeButton.setText(
+                    mode == TransmissionMode.FULL_MATRIX
+                            ? R.string.mode_full_matrix
+                            : R.string.mode_split_symbols
+            );
+        }
+
+        decreaseRepeatsButton.setOnClickListener(v -> {
+            if (repeatCount > MIN_REPEATS) {
+                repeatCount--;
+                updateRepeatControls();
+            }
+        });
+
+        increaseRepeatsButton.setOnClickListener(v -> {
+            if (repeatCount < MAX_REPEATS) {
+                repeatCount++;
+                updateRepeatControls();
+            }
+        });
+
+        infiniteLoopSwitch.setOnCheckedChangeListener(
+                (buttonView, isChecked) -> updateRepeatControls()
+        );
+
         modeButton.setOnClickListener(v -> showModeMenu());
 
         matrixView.setOnClickListener(v -> {
@@ -85,6 +161,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
         updatePreview();
+        updateRepeatControls();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(STATE_REPEATS, repeatCount);
+        outState.putBoolean(
+                STATE_INFINITE,
+                infiniteLoopSwitch.isChecked()
+        );
+        outState.putString(STATE_MODE, mode.name());
+
+        super.onSaveInstanceState(outState);
+    }
+
+    private void updateRepeatControls() {
+        repeatsValue.setText(String.valueOf(repeatCount));
+
+        boolean enabled = !infiniteLoopSwitch.isChecked();
+
+        decreaseRepeatsButton.setEnabled(
+                enabled && repeatCount > MIN_REPEATS
+        );
+
+        increaseRepeatsButton.setEnabled(
+                enabled && repeatCount < MAX_REPEATS
+        );
+
+        repeatsValue.setAlpha(enabled ? 1.0f : 0.4f);
     }
 
     private void showModeMenu() {
