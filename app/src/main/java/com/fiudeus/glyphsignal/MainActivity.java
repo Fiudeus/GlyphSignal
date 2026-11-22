@@ -20,5 +20,15 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        GlyphMatrixView matrixView = findViewById(R.id.glyphMatrixView);
+
+        boolean[][] frame = new boolean[25][25];
+
+        for (int x = 6; x <= 18; x++) {
+            frame[12][x] = true;
+        }
+
+        matrixView.setFrame(frame);
     }
 }
