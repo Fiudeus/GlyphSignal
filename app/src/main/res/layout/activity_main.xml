@@ -85,15 +85,6 @@
                 android:textSize="16sp" />
         </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:text="@string/conversion_indicator"
-            android:textColor="@color/gs_accent"
-            android:textSize="13sp" />
-
         <!-- Read-only Morse output, filled in a later stage. -->
         <TextView
             android:layout_width="match_parent"
