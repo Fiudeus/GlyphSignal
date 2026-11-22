@@ -1,9 +1,11 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<resources>
     <style name="Base.Theme.GlyphSignal" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/gs_accent</item>
+        <item name="colorOnPrimary">@color/gs_on_accent</item>
+        <item name="colorSecondary">@color/gs_accent</item>
+        <item name="colorSurface">@color/gs_surface</item>
+        <item name="colorOnSurface">@color/gs_text</item>
+        <item name="android:colorBackground">@color/gs_background</item>
     </style>
-
     <style name="Theme.GlyphSignal" parent="Base.Theme.GlyphSignal" />
 </resources>

@@ -1,3 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GlyphSignal</string>
+    <string name="brand_glyph">GLYPH</string>
+    <string name="brand_signal">SIGNAL</string>
+    <string name="label_message">СООБЩЕНИЕ</string>
+    <string name="message_hint">Введите сообщение</string>
+    <string name="conversion_indicator">↓  Преобразование в Морзе</string>
+    <string name="label_morse">КОД МОРЗЕ</string>
+    <string name="morse_placeholder">Здесь появится код Морзе</string>
+    <string name="label_matrix">GLYPH MATRIX</string>
+    <string name="matrix_resolution">25 × 25</string>
+    <string name="matrix_placeholder">Предпросмотр матрицы</string>
+    <string name="label_settings">НАСТРОЙКИ ПЕРЕДАЧИ</string>
+    <string name="label_mode">Режим</string>
+    <string name="mode_full_matrix">Full Matrix ▾</string>
+    <string name="label_wpm">Скорость</string>
+    <string name="label_brightness">Яркость</string>
+    <string name="unit_wpm">WPM</string>
+    <string name="unit_percent" formatted="false">%</string>
+    <string name="label_repeats">Повторения</string>
+    <string name="decrease_repeats">Уменьшить количество повторений</string>
+    <string name="increase_repeats">Увеличить количество повторений</string>
+    <string name="label_infinite_loop">Бесконечный цикл</string>
+    <string name="infinite_loop_hint">Повторять до ручной остановки</string>
+    <string name="progress_placeholder">Повтор 1/1</string>
+    <string name="start_transmission">Начать передачу</string>
+    <string name="initial_wpm" translatable="false">15</string>
+    <string name="initial_brightness" translatable="false">75</string>
+    <string name="initial_repeats" translatable="false">1</string>
+    <string name="minus_symbol" translatable="false">−</string>
+    <string name="plus_symbol" translatable="false">+</string>
 </resources>

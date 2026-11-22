@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gs_background">#F5F5F4</color>
+    <color name="gs_surface">#FFFFFF</color>
+    <color name="gs_surface_alt">#EFEFED</color>
+    <color name="gs_text">#181818</color>
+    <color name="gs_muted">#717171</color>
+    <color name="gs_border">#DADADA</color>
+    <color name="gs_accent">#E0444E</color>
+    <color name="gs_on_accent">#FFFFFF</color>
 </resources>

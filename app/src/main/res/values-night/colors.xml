@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gs_background">#111111</color>
+    <color name="gs_surface">#202020</color>
+    <color name="gs_surface_alt">#292929</color>
+    <color name="gs_text">#F5F5F5</color>
+    <color name="gs_muted">#9D9D9D</color>
+    <color name="gs_border">#424242</color>
+    <color name="gs_accent">#E5484D</color>
+    <color name="gs_on_accent">#FFFFFF</color>
+</resources>
