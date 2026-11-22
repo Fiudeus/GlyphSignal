@@ -30,4 +30,10 @@
     <string name="initial_repeats" translatable="false">1</string>
     <string name="minus_symbol" translatable="false">−</string>
     <string name="plus_symbol" translatable="false">+</string>
+    <string name="mode_full_menu">Full Matrix</string>
+    <string name="mode_split_menu">Split Symbols</string>
+    <string name="mode_split_symbols">Split Symbols ▾</string>
+    <string name="preview_dot">Предпросмотр: точка</string>
+    <string name="preview_dash">Предпросмотр: тире</string>
+    <string name="preview_pause">Предпросмотр: пауза</string>
 </resources>
