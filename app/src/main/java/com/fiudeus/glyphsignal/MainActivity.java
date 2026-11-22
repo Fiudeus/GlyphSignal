@@ -30,5 +30,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
         matrixView.setFrame(frame);
+
+        boolean[][][] frames = {
+                GlyphFrames.dot(),
+                GlyphFrames.dash(),
+                GlyphFrames.full(),
+                GlyphFrames.off()
+        };
+
+        final int[] index = {0};
+
+        matrixView.setFrame(frames[index[0]]);
+
+        matrixView.setOnClickListener(v -> {
+            index[0] = (index[0] + 1) % frames.length;
+            matrixView.setFrame(frames[index[0]]);
+        });
+
     }
 }
